@@ -23,7 +23,7 @@ namespace SnowFall_FNA_
         public Game1() //This is the constructor, this function is called whenever the game class is created.
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+            Content.RootDirectory = "..\\..\\Content";
             IsMouseVisible = true;
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
@@ -66,6 +66,11 @@ namespace SnowFall_FNA_
         {
             Input.Update();
             StopStart();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
 
             //Update the things FNA handles for us underneath the hood:
             base.Update(gameTime);
