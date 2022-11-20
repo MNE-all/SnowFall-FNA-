@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FNA">
-      <HintPath>..\..\FNA-SnowFall\FNA-SnowFall\FNA.dll</HintPath>
+      <HintPath>.\FNA.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup />
@@ -66,6 +66,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)$(OutDir)\*.dll" "$(ProjectDir)"</PostBuildEvent>
+    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)\*.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>
