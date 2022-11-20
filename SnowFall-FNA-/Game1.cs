@@ -80,15 +80,18 @@ namespace SnowFall_FNA_
         protected override void Draw(GameTime gameTime)
         {
             //This will clear what's on the screen each frame, if we don't clear the screen will look like a mess:
-            GraphicsDevice.Clear(Color.Purple);
+            if (n)
+            {
+                GraphicsDevice.Clear(Color.Purple);
 
-            UpdatePositions();
+                UpdatePositions();
 
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
+                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend);
 
-            spriteBatch.Draw(background, new Vector2(0, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
-            DrawSnowflakes();
-            spriteBatch.End();
+                spriteBatch.Draw(background, new Vector2(0, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 1);
+                DrawSnowflakes();
+                spriteBatch.End();
+            }
 
             //Draw the things FNA handles for us underneath the hood:
             base.Draw(gameTime);
