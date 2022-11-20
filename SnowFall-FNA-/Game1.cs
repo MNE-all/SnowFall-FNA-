@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace SnowFall_FNA_
 {
@@ -16,7 +13,7 @@ namespace SnowFall_FNA_
         SpriteBatch spriteBatch;
         Texture2D background, snowflake;
         private bool n = true;
-        int pos = 0;
+        private KeyboardState currentState = Keyboard.GetState();
 
         List<SnowClass> snows = new List<SnowClass>();
 
@@ -66,12 +63,13 @@ namespace SnowFall_FNA_
         {
             Input.Update();
             StopStart();
+            currentState = Keyboard.GetState();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+
+            if (currentState.IsKeyDown(Keys.Escape))
             {
                 Exit();
             }
-
             //Update the things FNA handles for us underneath the hood:
             base.Update(gameTime);
         }
